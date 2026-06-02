@@ -687,6 +687,8 @@
     @media (max-width: 900px) {
       .hero-inner  { flex-direction: column-reverse; gap: 40px; text-align: center; }
       .hero-visual { flex: none; }
+      .hero-coming-block { align-items: center; }
+      .badge-row { justify-content: center; }
       .hero-ctas   { justify-content: center; }
       .badge-row   { justify-content: center; }
       .shop-inner  { flex-direction: column; }
@@ -697,9 +699,12 @@
       .footer-inner { flex-direction: column; }
     }
     @media (max-width: 700px) {
-      nav { padding: 10px 5%; }
-      .nav-links  { display: none; }
-      .nav-hamburger { display: flex; }
+      nav { padding: 10px 3%; }
+      .nav-links { display: flex; gap: 10px; }
+      .nav-links a { font-size: 0.72rem; }
+      .nav-cta { padding: 7px 12px; font-size: 0.72rem; }
+      .nav-hamburger { display: none; }
+      .nav-logo img { margin-left: 4px; }
       .hero-visual { max-width: 90vw; }
       .bottle-blob { width: 240px; height: 240px; }
       .nut-stat-big { min-width: auto; width: 100%; }
