@@ -352,6 +352,21 @@
     .benefit-icon-ring svg { width: 28px; height: 28px; color: #fff; stroke: #fff; }
     .benefit-item h3 { color: #fff; margin-bottom: 10px; font-size: 1.25rem; }
     .benefit-item p  { color: rgba(255,255,255,0.85); font-size: 0.97rem; }
+    .frendi-what-list {
+      list-style: none; padding: 0; margin: 48px 0 0;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 22px 52px;
+    }
+    .frendi-what-list li {
+      color: rgba(255,255,255,0.92); font-size: 1.05rem; line-height: 1.55;
+      display: flex; align-items: flex-start; gap: 14px;
+    }
+    .what-icon {
+      flex-shrink: 0; width: 28px; height: 28px; margin-top: 0px;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.25));
+    }
+    @media (max-width: 640px) {
+      .frendi-what-list { grid-template-columns: 1fr; }
+    }
 
     /* ═══════════════════════════════════════════════════════════
        3. SHOP
@@ -718,7 +733,7 @@
     <img src="frendi-logo.png" alt="Frendi — Your Fiber Friend!" />
   </a>
   <div class="nav-links">
-    <a href="#benefits">Why Frendi</a>
+    <a href="#benefits">What's Frendi?</a>
     <a href="#shop">Shop</a>
     <a href="#nutrition">Nutrition</a>
     <a href="#story">Our Story</a>
@@ -731,7 +746,7 @@
 </nav>
 
 <div class="mobile-nav" id="mobile-nav">
-  <a href="#benefits" onclick="closeMobile()">Why Frendi</a>
+  <a href="#benefits" onclick="closeMobile()">What's Frendi?</a>
   <a href="#shop"     onclick="closeMobile()">Shop</a>
   <a href="#nutrition" onclick="closeMobile()">Nutrition</a>
   <a href="#story"    onclick="closeMobile()">Our Story</a>
@@ -760,6 +775,7 @@
         <div class="hero-coming-soon">COMING SOON</div>
         <span class="hero-tag">Launching Summer 2026</span>
       </div>
+      <p style="font-size:1rem;font-weight:700;letter-spacing:0.08em;color:var(--orange);text-transform:uppercase;margin-bottom:6px;">Daily Fiber Drink</p>
       <h1>Frendi —<br/><span>Your Fiber</span><br/>Friend!</h1>
       <p class="hero-sub">The first ever kids fiber drink made to make daily fiber easier for families. Designed for ages 2+, built for picky eaters, and loved by busy parents.</p>
       <div class="hero-ctas">
@@ -799,86 +815,33 @@
 
   <div class="benefits-inner">
     <div class="reveal">
-      <p class="section-label">Why Frendi?</p>
-      <h2>Fiber made <em style="color:var(--yellow);font-style:normal;">finally easy</em> for kids</h2>
-      <p class="benefits-intro">Most parents know fiber matters — but getting picky eaters to actually get enough of it every day? That's the hard part. Frendi was built to fix that.</p>
+      <p class="section-label">What is Frendi?</p>
+      <h2 style="color:#fff;">Daily Fiber Made Easy</h2>
+      <p class="benefits-intro">Frendi is a <strong style="color:var(--yellow);">daily fiber drink</strong> made specifically for kids — the first ready-to-drink option of its kind, created by a mom &amp; nurse who gets it.</p>
     </div>
 
-    <div class="benefits-grid">
-
-      <div class="benefit-item reveal" style="transition-delay:0.05s">
-        <div class="benefit-icon-ring" style="background:var(--yellow);">
-          <!-- Cup icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M17 8h1a4 4 0 010 8h-1" stroke="white"/>
-            <path d="M3 8h14v9a4 4 0 01-4 4H7a4 4 0 01-4-4V8z" stroke="white"/>
-            <line x1="6" y1="2" x2="6" y2="8" stroke="white"/>
-            <line x1="10" y1="2" x2="10" y2="8" stroke="white"/>
-            <line x1="14" y1="2" x2="14" y2="8" stroke="white"/>
-          </svg>
-        </div>
-        <h3>Daily Fiber in One Sip</h3>
-        <p>Each serving of Frendi delivers 7g of fiber in an easy-to-drink format kids can enjoy every single day — no powder mixing, no struggle.</p>
-      </div>
-
-      <div class="benefit-item reveal" style="transition-delay:0.12s">
-        <div class="benefit-icon-ring" style="background:var(--green);">
-          <!-- Heart icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z" stroke="white" fill="white" fill-opacity="0.25"/>
-          </svg>
-        </div>
-        <h3>Made for Picky Eaters</h3>
-        <p>Designed with the pickiest kids in mind. Frendi gives busy parents a simple solution when fruits, veggies, and supplements just aren't cutting it.</p>
-      </div>
-
-      <div class="benefit-item reveal" style="transition-delay:0.19s">
-        <div class="benefit-icon-ring" style="background:var(--blue);">
-          <!-- Drop icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <path d="M12 2C12 2 5 10 5 14a7 7 0 0014 0C19 10 12 2 12 2z" stroke="white" fill="white" fill-opacity="0.2"/>
-          </svg>
-        </div>
-        <h3>Low Sugar Formula</h3>
-        <p>Only 5g of sugar per serving. Parents can feel good knowing Frendi is a low-sugar option that doesn't sacrifice taste for nutrition.</p>
-      </div>
-
-      <div class="benefit-item reveal" style="transition-delay:0.26s">
-        <div class="benefit-icon-ring" style="background:var(--purple);">
-          <!-- Person icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="7" r="4" stroke="white"/>
-            <path d="M6 21v-2a4 4 0 014-4h4a4 4 0 014 4v2" stroke="white"/>
-          </svg>
-        </div>
-        <h3>Safe from Ages 2+</h3>
-        <p>Frendi is crafted to be age-appropriate starting at age 2 — making it one of the earliest fiber drink options available for toddlers and up.</p>
-      </div>
-
-      <div class="benefit-item reveal" style="transition-delay:0.33s">
-        <div class="benefit-icon-ring" style="background:var(--orange);">
-          <!-- Clock icon -->
-          <svg viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-            <circle cx="12" cy="12" r="10" stroke="white"/>
-            <polyline points="12 6 12 12 16 14" stroke="white"/>
-          </svg>
-        </div>
-        <h3>Convenient for Busy Parents</h3>
-        <p>Grab it, go. No prep, no mess, no fuss. Frendi fits into your family's routine without adding anything to your plate.</p>
-      </div>
-
-      <div class="benefit-item reveal" style="transition-delay:0.40s">
-        <div class="benefit-icon-ring" style="background:var(--pink);">
-          <!-- Star icon -->
-          <svg viewBox="0 0 24 24" fill="white">
-            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-          </svg>
-        </div>
-        <h3>The First of Its Kind</h3>
-        <p>There's nothing else like it. Frendi is the first ready-to-drink fiber drink made specifically for kids — a category that was long overdue.</p>
-      </div>
-
-    </div>
+    <ul class="frendi-what-list reveal">
+      <li>
+        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#f5c200"/></svg>
+        Ready to drink — no mixing or measuring.
+      </li>
+      <li>
+        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#3ecf72"/></svg>
+        Not a laxative — gentle daily fiber support.
+      </li>
+      <li>
+        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#00c8f8"/></svg>
+        Easy for lunchboxes, travel, and busy family schedules.
+      </li>
+      <li>
+        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#9b5de5"/></svg>
+        Great served chilled at home or on the go.
+      </li>
+      <li>
+        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#ff0200"/></svg>
+        Created by a mom and nurse.
+      </li>
+    </ul>
   </div>
 </section>
 
@@ -999,6 +962,10 @@
         <p>Frendi was formulated to support healthy fiber intake in kids using simple, clean ingredients — because parents deserve to know exactly what's going into their children's bodies.</p>
         <p>We kept sugar low on purpose. At just 5g per serving, Frendi fits comfortably into a healthy daily routine without contributing to excess sugar intake.</p>
         <p>Fiber supports healthy digestion and helps kids feel their best. Frendi makes it easy to keep that a daily habit — no convincing required.</p>
+        <div style="background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:18px 22px;margin:18px 0;display:flex;align-items:center;gap:16px;">
+          <span style="font-size:2.2rem;">🫐</span>
+          <p style="margin:0;color:#fff;font-size:1rem;line-height:1.5;"><strong style="color:var(--yellow);">Fun fact:</strong> Each serving of Frendi contains approximately the same fiber as <strong>2 cups of blueberries!</strong></p>
+        </div>
         <div class="nutrition-pills">
           <span class="nut-pill">Includes Fiber</span>
           <span class="nut-pill">Low Sugar</span>
@@ -1169,7 +1136,7 @@
     </div>
     <div class="footer-links-col">
       <h4>Navigate</h4>
-      <a href="#benefits">Why Frendi</a>
+      <a href="#benefits">What's Frendi?</a>
       <a href="#shop">Shop</a>
       <a href="#nutrition">Nutrition</a>
       <a href="#story">Our Story</a>
