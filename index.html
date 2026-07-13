@@ -723,6 +723,63 @@
       .nut-stat-big { min-width: auto; width: 100%; }
     }
     @media (max-width: 480px) { .btn { padding: 13px 26px; font-size: 1rem; } }
+
+    /* ═══════════════════════════════════════════════════════════
+       WAITLIST STRIP
+    ═══════════════════════════════════════════════════════════ */
+    .waitlist-wrap { display: flex; flex-direction: column; width: 100%; max-width: 560px; }
+    .waitlist-strip {
+      display: flex; flex-direction: row; align-items: center;
+      background: var(--pink); border-radius: 18px;
+      padding: 14px 14px 14px 26px;
+      box-shadow: 0 8px 32px rgba(255,2,0,0.28);
+      width: 100%; gap: 0;
+    }
+    .waitlist-strip-label {
+      font-family: 'DynaPuff', cursive; font-weight: 600;
+      font-size: 1.05rem; color: #fff;
+      white-space: nowrap; flex-shrink: 0; margin-right: 18px;
+    }
+    .waitlist-strip-divider {
+      width: 1px; height: 30px; background: rgba(255,255,255,0.35);
+      flex-shrink: 0; margin-right: 16px;
+    }
+    .waitlist-strip-pill {
+      display: flex; align-items: center;
+      background: #fff; border-radius: 50px;
+      padding: 5px 5px 5px 16px;
+      flex: 1; min-width: 0;
+    }
+    .waitlist-strip-input {
+      flex: 1; border: none; outline: none; min-width: 0;
+      font-family: 'Nunito', sans-serif; font-size: 0.97rem;
+      font-weight: 600; color: #444; background: transparent;
+    }
+    .waitlist-strip-input::placeholder { color: #bbb; font-weight: 500; }
+    .waitlist-strip-btn {
+      flex-shrink: 0; width: 38px; height: 38px; border-radius: 50%;
+      background: var(--yellow); border: none; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+      transition: background 0.2s, transform 0.15s;
+    }
+    .waitlist-strip-btn:hover:not(:disabled) { background: #e0af00; transform: scale(1.07); }
+    .waitlist-strip-btn:disabled { opacity: 0.5; cursor: not-allowed; transform: none; }
+    .waitlist-strip-btn svg { width: 17px; height: 17px; }
+    .waitlist-msg {
+      font-family: 'Nunito', sans-serif; font-size: 0.87rem;
+      font-weight: 700; min-height: 16px;
+      margin: 8px 0 0 6px; color: rgba(255,255,255,0.92);
+    }
+    .waitlist-msg.error { color: #ffcdd2; }
+    .waitlist-msg.dark  { color: var(--pink); }
+    .waitlist-msg.dark.error { color: #cc0000; }
+    @media (max-width: 560px) {
+      .waitlist-strip { flex-direction: column; align-items: stretch; padding: 16px; gap: 10px; border-radius: 16px; }
+      .waitlist-strip-label { margin-right: 0; font-size: 1rem; }
+      .waitlist-strip-divider { display: none; }
+      .waitlist-strip-btn { margin-left: 8px; }
+    }
   </style>
 </head>
 <body>
@@ -773,19 +830,30 @@
     <div class="hero-text">
       <div class="hero-coming-block">
         <div class="hero-coming-soon">COMING SOON</div>
-        <span class="hero-tag">Launching Summer 2026</span>
+        <span class="hero-tag">Launching 2026</span>
       </div>
       <p style="font-size:1rem;font-weight:700;letter-spacing:0.08em;color:var(--orange);text-transform:uppercase;margin-bottom:6px;">Daily Fiber Drink</p>
       <h1>Frendi —<br/><span>Your Fiber</span><br/>Friend!</h1>
       <p class="hero-sub">The first ever kids fiber drink made to make daily fiber easier for families. Designed for ages 2+, built for picky eaters, and loved by busy parents.</p>
-      <div class="hero-ctas">
-        <a href="#shop"     class="btn btn-primary">Shop Frendi</a>
+      <div class="hero-ctas" style="flex-direction:column;align-items:flex-start;gap:12px;">
+        <div class="waitlist-wrap">
+          <div class="waitlist-strip">
+            <span class="waitlist-strip-label">Join the Waitlist!</span>
+            <div class="waitlist-strip-divider"></div>
+            <div class="waitlist-strip-pill">
+              <input type="email" class="waitlist-strip-input" id="hero-email" placeholder="Enter your email" autocomplete="email" />
+              <button class="waitlist-strip-btn" id="hero-arrow" aria-label="Join waitlist">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+              </button>
+            </div>
+          </div>
+          <p class="waitlist-msg" id="hero-msg" aria-live="polite"></p>
+        </div>
         <a href="#benefits" class="btn btn-secondary">Learn More</a>
       </div>
       <div class="badge-row">
         <div class="badge"><span class="badge-dot" style="background:var(--purple);"></span> Ages 2+</div>
         <div class="badge"><span class="badge-dot" style="background:var(--green);"></span> 7g Fiber</div>
-        <div class="badge"><span class="badge-dot" style="background:var(--yellow);"></span> 5g Sugar</div>
         <div class="badge"><span class="badge-dot" style="background:var(--pink);"></span> Low Sugar</div>
       </div>
     </div>
@@ -872,7 +940,7 @@
       <div class="product-halo"></div>
       <div class="product-card-visual">
         <div class="coming-soon-big">COMING SOON</div>
-        <div class="coming-soon-ribbon">Coming Summer 2026</div>
+        <div class="coming-soon-ribbon">Coming 2026</div>
         <div class="product-bottle-img">
           <img src="sunny-slope-bottle.png" alt="Frendi Sunny Slope bottle" />
         </div>
@@ -880,7 +948,6 @@
         <div class="product-flavor-name">Sunny Slope</div>
         <div class="product-stats">
           <span class="product-stat">7g Fiber</span>
-          <span class="product-stat">5g Sugar</span>
           <span class="product-stat">Ages 2+</span>
         </div>
         <!-- SHOPIFY EMBED AREA — paste Buy Button code inside #shopify-buy-button-placeholder -->
@@ -899,16 +966,25 @@
     <div class="shop-text">
       <p class="section-label dark">Our Product</p>
       <h2>Meet <span>Sunny Slope</span> —<br/>Frendi's First Flavor</h2>
-      <p>Our debut flavor is bright, cheerful, and made for little ones to actually love drinking. Sunny Slope is packed with 7 grams of fiber and only 5 grams of sugar, giving kids their daily fiber in the most convenient way possible.</p>
+      <p>Our debut flavor is bright, cheerful, and made for little ones to actually love drinking. Sunny Slope is packed with 7 grams of fiber, giving kids their daily fiber in the most convenient way possible.</p>
       <p style="margin-top:12px;">No powder. No mess. No convincing. Just a delicious daily fiber drink that parents can feel great about.</p>
       <div class="badge-row" style="margin-top:24px;">
         <div class="badge"><span class="badge-dot" style="background:var(--green);"></span> 7g Fiber per serving</div>
-        <div class="badge"><span class="badge-dot" style="background:var(--yellow);"></span> Only 5g Sugar</div>
         <div class="badge"><span class="badge-dot" style="background:var(--pink);"></span> Low Sugar</div>
         <div class="badge"><span class="badge-dot" style="background:var(--purple);"></span> Ages 2 and up</div>
       </div>
-      <div style="margin-top:30px;">
-        <a href="#final-cta" class="btn btn-primary">Pre-Order Now</a>
+      <div style="margin-top:30px;" class="waitlist-wrap">
+        <div class="waitlist-strip">
+          <span class="waitlist-strip-label">Join the Waitlist!</span>
+          <div class="waitlist-strip-divider"></div>
+          <div class="waitlist-strip-pill">
+            <input type="email" class="waitlist-strip-input" id="shop-email" placeholder="Enter your email" autocomplete="email" />
+            <button class="waitlist-strip-btn" id="shop-arrow" aria-label="Join waitlist">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="waitlist-msg dark" id="shop-msg" aria-live="polite"></p>
       </div>
     </div>
   </div>
@@ -943,12 +1019,6 @@
             <div class="lbl">of Fiber per serving</div>
           </div>
         </div>
-        <div class="nut-stat-big nut-sugar">
-          <div>
-            <div class="num">5<span class="unit">g</span></div>
-            <div class="lbl">of Sugar per serving</div>
-          </div>
-        </div>
         <div class="nut-stat-big" style="border-color:rgba(0,200,248,0.3);">
           <div>
             <div class="num" style="color:var(--blue);font-size:2.6rem;">2+</div>
@@ -960,7 +1030,6 @@
       <div class="nutrition-text-col reveal" style="transition-delay:0.2s;">
         <h3>Simple ingredients, big impact</h3>
         <p>Frendi was formulated to support healthy fiber intake in kids using simple, clean ingredients — because parents deserve to know exactly what's going into their children's bodies.</p>
-        <p>We kept sugar low on purpose. At just 5g per serving, Frendi fits comfortably into a healthy daily routine without contributing to excess sugar intake.</p>
         <p>Fiber supports healthy digestion and helps kids feel their best. Frendi makes it easy to keep that a daily habit — no convincing required.</p>
         <div class="nutrition-pills">
           <span class="nut-pill">Includes Fiber</span>
@@ -1061,7 +1130,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">When is Frendi launching?<span class="faq-arrow">+</span></button>
-        <div class="faq-a">Frendi is launching Summer 2026. We're working hard to get it into your hands as soon as possible!</div>
+        <div class="faq-a">Frendi is launching 2026. We're working hard to get it into your hands as soon as possible!</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Where will Frendi be sold?<span class="faq-arrow">+</span></button>
@@ -1069,7 +1138,7 @@
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Is Frendi low sugar?<span class="faq-arrow">+</span></button>
-        <div class="faq-a">Yes! Frendi has only 5g of sugar per serving, making it a low-sugar option parents can feel comfortable incorporating into their child's daily routine.</div>
+        <div class="faq-a">Yes! Frendi is a low-sugar option parents can feel comfortable incorporating into their child's daily routine.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">How much fiber does Frendi have?<span class="faq-arrow">+</span></button>
@@ -1105,13 +1174,25 @@
 
   <div class="finalcta-inner reveal">
     <h2>Ready to meet your child's fiber friend?</h2>
-    <p>Frendi is launching Summer 2026 — the first ever daily fiber drink made for kids. Don't miss it.</p>
-    <div class="finalcta-btns">
-      <a href="#shop" class="btn btn-yellow">Shop Frendi</a>
+    <p>Frendi is launching 2026 — the first ever daily fiber drink made for kids. Don't miss it.</p>
+    <div class="finalcta-btns" style="flex-direction:column;align-items:center;gap:14px;">
+      <div class="waitlist-wrap" style="max-width:580px;width:100%;">
+        <div class="waitlist-strip">
+          <span class="waitlist-strip-label">Join the Waitlist!</span>
+          <div class="waitlist-strip-divider"></div>
+          <div class="waitlist-strip-pill">
+            <input type="email" class="waitlist-strip-input" id="cta-email" placeholder="Enter your email" autocomplete="email" />
+            <button class="waitlist-strip-btn" id="cta-arrow" aria-label="Join waitlist">
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+            </button>
+          </div>
+        </div>
+        <p class="waitlist-msg" id="cta-msg" aria-live="polite"></p>
+      </div>
       <a href="#story" class="btn" style="background:rgba(255,255,255,0.14);color:#fff;border:2.5px solid rgba(255,255,255,0.38);backdrop-filter:blur(6px);">Our Story</a>
     </div>
     <div>
-      <span class="launch-badge"><span class="launch-dot"></span> Launching Summer 2026 — Online First</span>
+      <span class="launch-badge"><span class="launch-dot"></span> Launching 2026 — Online First</span>
     </div>
   </div>
 </section>
@@ -1122,7 +1203,7 @@
   <div class="footer-inner">
     <div class="footer-brand">
       <img src="frendi-logo.png" alt="Frendi — Your Fiber Friend!" class="footer-logo-img" />
-      <p>The first ever daily fiber drink made for kids. Launching Summer 2026 — online first.</p>
+      <p>The first ever daily fiber drink made for kids. Launching 2026 — online first.</p>
       <!-- SOCIAL LINKS: Replace # with real profile URLs when ready -->
       <div class="social-links">
         <a href="#" class="social-link" aria-label="Instagram">IG</a>
@@ -1227,6 +1308,64 @@
     requestAnimationFrame(frame);
   })();
 
+</script>
+
+<script>
+(function () {
+  var ENDPOINT = '/.netlify/functions/subscribe';
+
+  function showMsg(msgEl, text, isError) {
+    msgEl.textContent = text;
+    msgEl.className = 'waitlist-msg' + (isError ? ' error' : '');
+  }
+
+  function setupWaitlist(emailId, arrowId, msgId) {
+    var input = document.getElementById(emailId);
+    var arrow = document.getElementById(arrowId);
+    var msg   = document.getElementById(msgId);
+    if (!input || !arrow || !msg) return;
+
+    function submit() {
+      var email = input.value.trim();
+      if (!email) { showMsg(msg, 'Please enter a valid email address.', true); return; }
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!re.test(email)) { showMsg(msg, 'Please enter a valid email address.', true); return; }
+
+      arrow.disabled = true;
+      showMsg(msg, '', false);
+
+      fetch(ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: email })
+      })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.status === 'subscribed') {
+          input.value = '';
+          showMsg(msg, '✓ You’re on the waitlist! We’ll email you when Frendi launches.', false);
+        } else if (data.status === 'already_subscribed') {
+          showMsg(msg, 'You’re already on the waitlist!', false);
+        } else {
+          showMsg(msg, 'Something went wrong. Please try again.', true);
+        }
+      })
+      .catch(function () {
+        showMsg(msg, 'Something went wrong. Please try again.', true);
+      })
+      .finally(function () {
+        arrow.disabled = false;
+      });
+    }
+
+    arrow.addEventListener('click', submit);
+    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+  }
+
+  setupWaitlist('hero-email', 'hero-arrow', 'hero-msg');
+  setupWaitlist('shop-email', 'shop-arrow', 'shop-msg');
+  setupWaitlist('cta-email',  'cta-arrow',  'cta-msg');
+})();
 </script>
 </body>
 </html>
