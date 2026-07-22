@@ -853,7 +853,7 @@
             <div class="waitlist-strip-divider"></div>
             <div class="waitlist-strip-pill">
               <input type="email" class="waitlist-strip-input" id="hero-email" placeholder="Enter your email" autocomplete="email" />
-              <button class="waitlist-strip-btn" id="hero-arrow" aria-label="Join waitlist">
+              <button type="button" class="waitlist-strip-btn" id="hero-arrow" aria-label="Join waitlist">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </button>
             </div>
@@ -991,7 +991,7 @@
           <div class="waitlist-strip-divider"></div>
           <div class="waitlist-strip-pill">
             <input type="email" class="waitlist-strip-input" id="shop-email" placeholder="Enter your email" autocomplete="email" />
-            <button class="waitlist-strip-btn" id="shop-arrow" aria-label="Join waitlist">
+            <button type="button" class="waitlist-strip-btn" id="shop-arrow" aria-label="Join waitlist">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </div>
@@ -1192,7 +1192,7 @@
           <div class="waitlist-strip-divider"></div>
           <div class="waitlist-strip-pill">
             <input type="email" class="waitlist-strip-input" id="cta-email" placeholder="Enter your email" autocomplete="email" />
-            <button class="waitlist-strip-btn" id="cta-arrow" aria-label="Join waitlist">
+            <button type="button" class="waitlist-strip-btn" id="cta-arrow" aria-label="Join waitlist">
               <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </button>
           </div>
@@ -1325,68 +1325,80 @@
 (function () {
   var ENDPOINT = ‘/.netlify/functions/subscribe’;
 
-  // Preserve any extra classes (e.g. "dark") already on the element
   function showMsg(msgEl, text, isError) {
+    var isDark = msgEl.classList.contains(‘dark’);
     msgEl.textContent = text;
-    var base = msgEl.className.replace(/\s*(error)\s*/g, ‘’).trim();
-    msgEl.className = base + (isError ? ‘ error’ : ‘’);
+    msgEl.className   = ‘waitlist-msg’ + (isDark ? ‘ dark’ : ‘’) + (isError ? ‘ error’ : ‘’);
   }
 
   function setupWaitlist(emailId, arrowId, msgId) {
     var input = document.getElementById(emailId);
     var arrow = document.getElementById(arrowId);
     var msg   = document.getElementById(msgId);
+
+    console.log(‘[frendi] setup’, emailId, ‘| found:’, !!input, !!arrow, !!msg);
     if (!input || !arrow || !msg) return;
 
-    var pending = false;
-
-    function setLoading(on) {
-      pending      = on;
-      input.disabled = on;
-      arrow.disabled = on;
-    }
+    function unlock() { arrow.disabled = false; }
 
     function submit() {
-      if (pending) return;
+      console.log(‘[frendi] submit called, arrow.disabled =’, arrow.disabled);
+      if (arrow.disabled) return;
 
       var email = input.value.trim().toLowerCase();
+      console.log(‘[frendi] email:’, email || ‘(empty)’);
+
       if (!email) {
         showMsg(msg, ‘Please enter your email address.’, true);
         return;
       }
-      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!re.test(email)) {
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
         showMsg(msg, ‘Please enter a valid email address.’, true);
         return;
       }
 
-      setLoading(true);
+      arrow.disabled = true;
       showMsg(msg, ‘’, false);
+
+      console.log(‘[frendi] POST’, ENDPOINT, JSON.stringify({ email: email }));
 
       fetch(ENDPOINT, {
         method: ‘POST’,
         headers: { ‘Content-Type’: ‘application/json’ },
         body: JSON.stringify({ email: email })
       })
-      .then(function (res) { return res.json(); })
-      .then(function (data) {
-        if (data.success) {
+      .then(function (res) {
+        console.log(‘[frendi] response status:’, res.status);
+        return res.text();
+      })
+      .then(function (text) {
+        console.log(‘[frendi] response body:’, text);
+        var data;
+        try { data = JSON.parse(text); } catch (e) { data = {}; }
+
+        // support both {success} (new) and {status} (legacy) shapes
+        var ok = data.success === true
+              || data.status === ‘subscribed’
+              || data.status === ‘already_subscribed’;
+
+        if (ok) {
           input.value = ‘’;
           showMsg(msg, data.message || "You’re on the waitlist!", false);
         } else {
           showMsg(msg, data.message || ‘Something went wrong. Please try again.’, true);
         }
+        unlock();
       })
-      .catch(function () {
+      .catch(function (err) {
+        console.error(‘[frendi] fetch error:’, err);
         showMsg(msg, ‘Something went wrong. Please try again.’, true);
-      })
-      .finally(function () {
-        setLoading(false);
+        unlock();
       });
     }
 
     arrow.addEventListener(‘click’, submit);
     input.addEventListener(‘keydown’, function (e) { if (e.key === ‘Enter’) submit(); });
+    console.log(‘[frendi] handlers attached to’, arrowId);
   }
 
   setupWaitlist(‘hero-email’, ‘hero-arrow’, ‘hero-msg’);
