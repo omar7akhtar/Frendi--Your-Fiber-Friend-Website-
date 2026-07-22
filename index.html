@@ -7,12 +7,14 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=DynaPuff:wght@600&display=swap" rel="stylesheet" />
+  <link rel="icon" type="image/png" href="frendi-logo.png" />
+  <link rel="apple-touch-icon" href="frendi-logo.png" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
       font-family: 'Nunito', sans-serif;
-      background: #fff8f0;
+      background: #fffdf5;
       color: #2d2d2d;
       overflow-x: hidden;
     }
@@ -25,13 +27,13 @@
     p  { line-height: 1.7; font-size: clamp(1rem, 2vw, 1.15rem); }
 
     :root {
-      --pink:   #ff0200;
-      --yellow: #f5c200;
-      --orange: #f5c200;
-      --green:  #3ecf72;
-      --purple: #9b5de5;
-      --blue:   #00c8f8;
-      --cream:  #fff8f0;
+      --pink:   #E81C2E;
+      --yellow: #F5C200;
+      --orange: #F5C200;
+      --green:  #44B848;
+      --purple: #1A5EAD;
+      --blue:   #1A5EAD;
+      --cream:  #fffdf5;
       --dark:   #1a1a2e;
     }
 
@@ -47,7 +49,7 @@
       background: rgba(255,255,255,0.94);
       backdrop-filter: blur(14px);
       border-bottom: 3px solid var(--yellow);
-      box-shadow: 0 4px 20px rgba(255,2,0,0.1);
+      box-shadow: 0 4px 20px rgba(26,94,173,0.1);
     }
     .nav-logo {
       display: flex;
@@ -75,10 +77,10 @@
       color: #fff !important;
       padding: 10px 22px;
       border-radius: 50px;
-      box-shadow: 0 4px 14px rgba(255,2,0,0.35);
+      box-shadow: 0 4px 14px rgba(232,28,46,0.35);
       transition: transform 0.2s, box-shadow 0.2s !important;
     }
-    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(255,2,0,0.45) !important; }
+    .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(232,28,46,0.45) !important; }
     .nav-hamburger {
       display: none;
       flex-direction: column;
@@ -174,14 +176,14 @@
     .btn-primary {
       background: var(--pink);
       color: #fff;
-      box-shadow: 0 6px 22px rgba(255,2,0,0.4);
+      box-shadow: 0 6px 22px rgba(232,28,46,0.4);
     }
-    .btn-primary:hover { box-shadow: 0 10px 30px rgba(255,2,0,0.5); }
+    .btn-primary:hover { box-shadow: 0 10px 30px rgba(232,28,46,0.5); }
     .btn-secondary {
       background: #fff;
       color: var(--pink);
       border: 3px solid var(--pink);
-      box-shadow: 0 4px 14px rgba(255,2,0,0.15);
+      box-shadow: 0 4px 14px rgba(232,28,46,0.15);
     }
     .btn-secondary:hover { background: var(--pink); color: #fff; }
     .btn-yellow {
@@ -221,7 +223,7 @@
       color: rgba(255,255,255,0.65);
       margin-bottom: 10px;
     }
-    .section-label.dark { color: var(--pink); }
+    .section-label.dark { color: var(--yellow); }
 
     /* ── SCROLL REVEAL ───────────────────────────────────────── */
     .reveal {
@@ -280,7 +282,7 @@
       padding: 6px 16px;
       border-radius: 50px;
     }
-    .hero-text h1 { color: var(--pink); text-shadow: 3px 3px 0 rgba(255,2,0,0.12); }
+    .hero-text h1 { color: var(--pink); text-shadow: 3px 3px 0 rgba(232,28,46,0.12); }
     .hero-text h1 span { color: var(--orange); }
     .hero-sub {
       font-size: clamp(1.05rem, 2.2vw, 1.3rem);
@@ -300,7 +302,7 @@
     .bottle-blob {
       position: absolute;
       width: 340px; height: 340px;
-      background: radial-gradient(circle at 40% 40%, #f5c200, #f5c200);
+      background: radial-gradient(circle at 40% 40%, #F5C200, #F5C200);
       border-radius: 60% 40% 55% 45% / 45% 55% 40% 60%;
       animation: blobMorph 7s ease-in-out infinite;
       opacity: 0.22;
@@ -372,7 +374,7 @@
        3. SHOP
     ═══════════════════════════════════════════════════════════ */
     #shop {
-      background: linear-gradient(to right, #fff3c4, #fff8f0, #e8f4ff);
+      background: #1A5EAD;
       padding: 100px 5% 100px;
       position: relative;
       overflow: hidden;
@@ -399,7 +401,7 @@
       border-radius: 30px;
       padding: 36px 28px;
       text-align: center;
-      box-shadow: 0 20px 60px rgba(255,2,0,0.16), 0 4px 12px rgba(0,0,0,0.05);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.18), 0 4px 12px rgba(0,0,0,0.08);
       border: 3px solid var(--yellow);
       width: 320px;
     }
@@ -411,7 +413,7 @@
       text-align: center;
       line-height: 1;
       margin-bottom: 8px;
-      text-shadow: 2px 2px 0 rgba(255,2,0,0.15);
+      text-shadow: 2px 2px 0 rgba(232,28,46,0.15);
     }
     .coming-soon-ribbon {
       position: absolute;
@@ -425,13 +427,13 @@
       padding: 5px 20px;
       border-radius: 50px;
       white-space: nowrap;
-      box-shadow: 0 4px 12px rgba(255,2,0,0.35);
+      box-shadow: 0 4px 12px rgba(232,28,46,0.35);
     }
     .product-flavor-name { font-family: 'DynaPuff', cursive; font-weight: 600; font-size: 1.5rem; color: var(--orange); margin-top: 8px; }
     .product-brand { color: var(--pink); font-weight: 800; font-size: 0.9rem; }
     .product-stats { display: flex; justify-content: center; gap: 8px; margin: 14px 0; flex-wrap: wrap; }
     .product-stat {
-      background: #fff3c4;
+      background: #EFF6FF;
       border: 2px solid var(--yellow);
       border-radius: 20px;
       padding: 5px 12px;
@@ -440,18 +442,18 @@
       color: var(--dark);
     }
     .shop-text { flex: 1; }
-    .shop-text h2 { color: var(--dark); }
-    .shop-text h2 span { color: var(--pink); }
-    .shop-text p { color: #555; margin-top: 14px; max-width: 480px; }
+    .shop-text h2 { color: #fff; }
+    .shop-text h2 span { color: var(--yellow); }
+    .shop-text p { color: rgba(255,255,255,0.92); margin-top: 14px; max-width: 480px; }
     .shopify-embed-area {
       margin-top: 30px;
-      border: 3px dashed var(--pink);
+      border: 3px dashed rgba(255,255,255,0.5);
       border-radius: 20px;
       padding: 26px 22px;
-      background: rgba(255,2,0,0.04);
+      background: rgba(255,255,255,0.18);
       text-align: center;
     }
-    .shopify-embed-area .embed-label { color: var(--pink); font-weight: 800; font-size: 0.95rem; }
+    .shopify-embed-area .embed-label { color: #fff; font-weight: 800; font-size: 0.95rem; }
     .shopify-embed-area small { display: block; color: #aaa; font-size: 0.82rem; margin-top: 5px; font-weight: 600; }
     #shopify-buy-button-placeholder { margin-top: 14px; }
 
@@ -459,37 +461,37 @@
        4. NUTRITION
     ═══════════════════════════════════════════════════════════ */
     #nutrition {
-      background: var(--dark);
+      background: #44B848;
       padding: 100px 5%;
       position: relative;
       overflow: hidden;
     }
     .nutrition-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
-    #nutrition .section-label { color: var(--yellow); opacity: 0.8; }
+    #nutrition .section-label { color: #fff; opacity: 0.9; }
     #nutrition h2 { color: #fff; }
     #nutrition h2 span { color: var(--yellow); }
     .nutrition-layout { display: flex; gap: 60px; margin-top: 60px; align-items: center; flex-wrap: wrap; }
     .nutrition-stats-col { flex: 0 0 auto; display: flex; flex-direction: column; gap: 22px; }
     .nut-stat-big {
       display: flex; align-items: center; gap: 20px;
-      background: rgba(255,255,255,0.06);
-      border: 2px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.22);
+      border: 2px solid rgba(255,255,255,0.4);
       border-radius: 24px;
       padding: 24px 28px;
       min-width: 275px;
     }
     .nut-stat-big .num { font-family: 'DynaPuff', cursive; font-weight: 600; font-size: 3.4rem; line-height: 1; }
     .nut-stat-big .unit { font-family: 'DynaPuff', cursive; font-weight: 600; font-size: 1.4rem; opacity: 0.7; }
-    .nut-stat-big .lbl { font-size: 0.88rem; font-weight: 700; color: rgba(255,255,255,0.65); margin-top: 3px; }
-    .nut-fiber .num { color: var(--green); }
+    .nut-stat-big .lbl { font-size: 0.88rem; font-weight: 700; color: rgba(255,255,255,0.85); margin-top: 3px; }
+    .nut-fiber .num { color: #fff; }
     .nut-sugar .num { color: var(--yellow); }
     .nutrition-text-col { flex: 1; min-width: 260px; }
     .nutrition-text-col h3 { color: #fff; margin-bottom: 16px; font-size: 1.6rem; }
-    .nutrition-text-col p  { color: rgba(255,255,255,0.75); margin-bottom: 14px; font-size: 1rem; }
+    .nutrition-text-col p  { color: rgba(255,255,255,0.92); margin-bottom: 14px; font-size: 1rem; }
     .nutrition-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
     .nut-pill {
-      background: rgba(255,255,255,0.1);
-      border: 2px solid rgba(255,255,255,0.2);
+      background: rgba(255,255,255,0.25);
+      border: 2px solid rgba(255,255,255,0.45);
       border-radius: 50px;
       padding: 8px 18px;
       color: #fff;
@@ -500,7 +502,7 @@
       margin-top: 38px;
       padding: 16px 22px;
       background: rgba(255,255,255,0.04);
-      border-left: 4px solid var(--yellow);
+      border-left: 4px solid rgba(255,255,255,0.7);
       border-radius: 0 12px 12px 0;
       color: rgba(255,255,255,0.5);
       font-size: 0.84rem;
@@ -511,7 +513,7 @@
        5. STORY
     ═══════════════════════════════════════════════════════════ */
     #story {
-      background: linear-gradient(to right, #fce4ec, #fff8f0, #ede7f6);
+      background: #1A5EAD;
       padding: 100px 5% 100px;
       position: relative;
       overflow: hidden;
@@ -531,7 +533,7 @@
       z-index: 2;
       border-radius: 24px;
       overflow: hidden;
-      box-shadow: 0 28px 70px rgba(155,93,229,0.22), 0 8px 24px rgba(0,0,0,0.14);
+      box-shadow: 0 28px 70px rgba(26,94,173,0.22), 0 8px 24px rgba(0,0,0,0.14);
       width: 340px;
     }
     .story-photo {
@@ -550,19 +552,19 @@
     .story-caption-name {
       font-family: 'DynaPuff', cursive; font-weight: 600;
       font-size: 1.25rem;
-      color: var(--dark);
+      color: #fff;
       line-height: 1.2;
     }
     .story-caption-title {
       font-size: 0.95rem;
       font-weight: 800;
-      color: #555;
+      color: rgba(255,255,255,0.7);
       margin-top: 4px;
     }
     .story-caption-role {
       font-size: 0.9rem;
       font-weight: 700;
-      color: #9b5de5;
+      color: var(--yellow);
       margin-top: 3px;
     }
     /* product card bottle image */
@@ -578,19 +580,19 @@
       height: auto;
       display: block;
       margin: 0 auto;
-      filter: drop-shadow(0 8px 18px rgba(200,120,0,0.2));
+      filter: drop-shadow(0 8px 18px rgba(68,184,72,0.25));
     }
     .story-text { flex: 1; }
-    .story-text h2 { color: var(--dark); }
-    .story-text h2 span { color: var(--pink); }
-    .story-text p { color: #555; margin-top: 16px; font-size: 1.06rem; }
+    .story-text h2 { color: #fff; }
+    .story-text h2 span { color: var(--yellow); }
+    .story-text p { color: rgba(255,255,255,0.88); margin-top: 16px; font-size: 1.06rem; }
     .story-pull-quote {
       margin-top: 26px;
       padding: 20px 26px;
       background: white;
       border-radius: 20px;
       border-left: 5px solid var(--pink);
-      box-shadow: 0 8px 28px rgba(255,2,0,0.09);
+      box-shadow: 0 8px 28px rgba(26,94,173,0.12);
       font-style: italic;
       color: var(--dark);
       font-size: 1.04rem;
@@ -619,7 +621,7 @@
       overflow: hidden;
       transition: border-color 0.3s, box-shadow 0.3s;
     }
-    .faq-item.open { border-color: var(--pink); box-shadow: 0 8px 28px rgba(255,2,0,0.13); }
+    .faq-item.open { border-color: var(--pink); box-shadow: 0 8px 28px rgba(232,28,46,0.13); }
     .faq-q {
       width: 100%; background: none; border: none;
       padding: 22px 28px;
@@ -643,7 +645,7 @@
        7. FINAL CTA
     ═══════════════════════════════════════════════════════════ */
     #final-cta {
-      background: linear-gradient(to right, var(--pink), #bb0000);
+      background: linear-gradient(to right, #E81C2E, #C21525);
       padding: 100px 5%;
       text-align: center;
       position: relative;
@@ -732,7 +734,7 @@
       display: flex; flex-direction: row; align-items: center;
       background: var(--pink); border-radius: 18px;
       padding: 14px 14px 14px 26px;
-      box-shadow: 0 8px 32px rgba(255,2,0,0.28);
+      box-shadow: 0 8px 32px rgba(232,28,46,0.28);
       width: 100%; gap: 0;
     }
     .waitlist-strip-label {
@@ -774,6 +776,15 @@
     .waitlist-msg.error { color: #ffcdd2; }
     .waitlist-msg.dark  { color: var(--pink); }
     .waitlist-msg.dark.error { color: #cc0000; }
+    .waitlist-consent {
+      font-family: 'Nunito', sans-serif; font-size: 0.75rem;
+      font-weight: 600; color: rgba(255,255,255,0.65);
+      margin: 6px 0 0 4px; line-height: 1.45;
+    }
+    .waitlist-consent.dark { color: #999; }
+    #final-cta .waitlist-strip { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
+    #final-cta .waitlist-strip-label { color: #E81C2E; }
+    #final-cta .waitlist-msg { color: rgba(255,255,255,0.95); }
     @media (max-width: 560px) {
       .waitlist-strip { flex-direction: column; align-items: stretch; padding: 16px; gap: 10px; border-radius: 16px; }
       .waitlist-strip-label { margin-right: 0; font-size: 1rem; }
@@ -848,6 +859,7 @@
             </div>
           </div>
           <p class="waitlist-msg" id="hero-msg" aria-live="polite"></p>
+          <p class="waitlist-consent">By joining the waitlist, you agree to receive launch updates and marketing emails from Frendi. You can unsubscribe at any time.</p>
         </div>
         <a href="#benefits" class="btn btn-secondary">Learn More</a>
       </div>
@@ -894,19 +906,19 @@
         Ready to drink — no mixing or measuring.
       </li>
       <li>
-        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#3ecf72"/></svg>
+        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#44B848"/></svg>
         Not a laxative — gentle daily fiber support.
       </li>
       <li>
-        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#00c8f8"/></svg>
+        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#1A5EAD"/></svg>
         Easy for lunchboxes, travel, and busy family schedules.
       </li>
       <li>
-        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#9b5de5"/></svg>
+        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#1A5EAD"/></svg>
         Great served chilled at home or on the go.
       </li>
       <li>
-        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#ff0200"/></svg>
+        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#E81C2E"/></svg>
         Each serving of Frendi contains approximately the same fiber as 2 cups of blueberries.
       </li>
     </ul>
@@ -918,9 +930,9 @@
   <svg class="wave-svg" viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="shopGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%"   stop-color="#fff3c4"/>
-        <stop offset="60%"  stop-color="#fff8f0"/>
-        <stop offset="100%" stop-color="#e8f4ff"/>
+        <stop offset="0%"   stop-color="#1A5EAD"/>
+        <stop offset="60%"  stop-color="#1A5EAD"/>
+        <stop offset="100%" stop-color="#1A5EAD"/>
       </linearGradient>
     </defs>
     <path d="M0,35 C90,53 270,53 360,35 S630,17 720,35 S990,53 1080,35 S1350,17 1440,35 L1440,70 L0,70 Z" fill="url(#shopGrad)"/>
@@ -985,15 +997,16 @@
           </div>
         </div>
         <p class="waitlist-msg dark" id="shop-msg" aria-live="polite"></p>
+        <p class="waitlist-consent dark">By joining the waitlist, you agree to receive launch updates and marketing emails from Frendi. You can unsubscribe at any time.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- Wave: Shop → Nutrition -->
-<div class="wave-sep" style="background:linear-gradient(to right,#fff3c4,#fff8f0,#e8f4ff);">
+<div class="wave-sep" style="background:#1A5EAD;">
   <svg class="wave-svg" viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,35 C90,17 270,17 360,35 S630,53 720,35 S990,17 1080,35 S1350,53 1440,35 L1440,70 L0,70 Z" fill="#1a1a2e"/>
+    <path d="M0,35 C90,17 270,17 360,35 S630,53 720,35 S990,17 1080,35 S1350,53 1440,35 L1440,70 L0,70 Z" fill="#44B848"/>
   </svg>
 </div>
 
@@ -1019,9 +1032,9 @@
             <div class="lbl">of Fiber per serving</div>
           </div>
         </div>
-        <div class="nut-stat-big" style="border-color:rgba(0,200,248,0.3);">
+        <div class="nut-stat-big" style="border-color:rgba(255,255,255,0.4);">
           <div>
-            <div class="num" style="color:var(--blue);font-size:2.6rem;">2+</div>
+            <div class="num" style="color:#fff;font-size:2.6rem;">2+</div>
             <div class="lbl">Years old and up</div>
           </div>
         </div>
@@ -1031,6 +1044,10 @@
         <h3>Simple ingredients, big impact</h3>
         <p>Frendi was formulated to support healthy fiber intake in kids using simple, clean ingredients — because parents deserve to know exactly what's going into their children's bodies.</p>
         <p>Fiber supports healthy digestion and helps kids feel their best. Frendi makes it easy to keep that a daily habit — no convincing required.</p>
+        <div style="background:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.4);border-radius:16px;padding:18px 22px;margin:18px 0;display:flex;align-items:center;gap:16px;">
+          <span style="font-size:2.2rem;">🫐</span>
+          <p style="margin:0;color:#fff;font-size:1rem;line-height:1.5;"><strong style="color:var(--yellow);">Fun fact:</strong> Each serving of Frendi contains approximately the same fiber as <strong>2 cups of blueberries!</strong></p>
+        </div>
         <div class="nutrition-pills">
           <span class="nut-pill">Includes Fiber</span>
           <span class="nut-pill">Low Sugar</span>
@@ -1048,16 +1065,9 @@
 </section>
 
 <!-- Wave: Nutrition → Story -->
-<div class="wave-sep" style="background:#1a1a2e;">
+<div class="wave-sep" style="background:#44B848;">
   <svg class="wave-svg" viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="storyGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%"   stop-color="#fce4ec"/>
-        <stop offset="50%"  stop-color="#fff8f0"/>
-        <stop offset="100%" stop-color="#ede7f6"/>
-      </linearGradient>
-    </defs>
-    <path d="M0,35 C90,53 270,53 360,35 S630,17 720,35 S990,53 1080,35 S1350,17 1440,35 L1440,70 L0,70 Z" fill="url(#storyGrad)"/>
+    <path d="M0,35 C90,53 270,53 360,35 S630,17 720,35 S990,53 1080,35 S1350,17 1440,35 L1440,70 L0,70 Z" fill="#1A5EAD"/>
   </svg>
 </div>
 
@@ -1095,9 +1105,9 @@
 </section>
 
 <!-- Wave: Story → FAQ -->
-<div class="wave-sep" style="background:linear-gradient(to right,#fce4ec,#fff8f0,#ede7f6);">
+<div class="wave-sep" style="background:#1A5EAD;">
   <svg class="wave-svg" viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0,35 C90,17 270,17 360,35 S630,53 720,35 S990,17 1080,35 S1350,53 1440,35 L1440,70 L0,70 Z" fill="#fff8f0"/>
+    <path d="M0,35 C90,17 270,17 360,35 S630,53 720,35 S990,17 1080,35 S1350,53 1440,35 L1440,70 L0,70 Z" fill="#fffdf5"/>
   </svg>
 </div>
 
@@ -1153,8 +1163,8 @@
   <svg class="wave-svg" viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
     <defs>
       <linearGradient id="ctaGrad" x1="0" y1="0" x2="1" y2="0">
-        <stop offset="0%"   stop-color="#ff0200"/>
-        <stop offset="100%" stop-color="#bb0000"/>
+        <stop offset="0%"   stop-color="#E81C2E"/>
+        <stop offset="100%" stop-color="#C21525"/>
       </linearGradient>
     </defs>
     <path d="M0,35 C90,53 270,53 360,35 S630,17 720,35 S990,53 1080,35 S1350,17 1440,35 L1440,70 L0,70 Z" fill="url(#ctaGrad)"/>
@@ -1188,6 +1198,7 @@
           </div>
         </div>
         <p class="waitlist-msg" id="cta-msg" aria-live="polite"></p>
+        <p class="waitlist-consent">By joining the waitlist, you agree to receive launch updates and marketing emails from Frendi. You can unsubscribe at any time.</p>
       </div>
       <a href="#story" class="btn" style="background:rgba(255,255,255,0.14);color:#fff;border:2.5px solid rgba(255,255,255,0.38);backdrop-filter:blur(6px);">Our Story</a>
     </div>
@@ -1266,7 +1277,7 @@
   const sections = document.querySelectorAll('section[id]');
   const navLinks = document.querySelectorAll('.nav-links a:not(.nav-cta)');
   window.addEventListener('scroll', () => {
-    navEl.style.boxShadow = scrollY > 10 ? '0 4px 28px rgba(255,2,0,0.16)' : '0 4px 20px rgba(255,2,0,0.1)';
+    navEl.style.boxShadow = scrollY > 10 ? '0 4px 28px rgba(232,28,46,0.16)' : '0 4px 20px rgba(232,28,46,0.1)';
     let cur = '';
     sections.forEach(s => { if (scrollY >= s.offsetTop - 120) cur = s.id; });
     navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + cur ? 'var(--pink)' : ''; });
@@ -1312,11 +1323,13 @@
 
 <script>
 (function () {
-  var ENDPOINT = '/.netlify/functions/subscribe';
+  var ENDPOINT = ‘/.netlify/functions/subscribe’;
 
+  // Preserve any extra classes (e.g. "dark") already on the element
   function showMsg(msgEl, text, isError) {
     msgEl.textContent = text;
-    msgEl.className = 'waitlist-msg' + (isError ? ' error' : '');
+    var base = msgEl.className.replace(/\s*(error)\s*/g, ‘’).trim();
+    msgEl.className = base + (isError ? ‘ error’ : ‘’);
   }
 
   function setupWaitlist(emailId, arrowId, msgId) {
@@ -1325,46 +1338,60 @@
     var msg   = document.getElementById(msgId);
     if (!input || !arrow || !msg) return;
 
-    function submit() {
-      var email = input.value.trim();
-      if (!email) { showMsg(msg, 'Please enter a valid email address.', true); return; }
-      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-      if (!re.test(email)) { showMsg(msg, 'Please enter a valid email address.', true); return; }
+    var pending = false;
 
-      arrow.disabled = true;
-      showMsg(msg, '', false);
+    function setLoading(on) {
+      pending      = on;
+      input.disabled = on;
+      arrow.disabled = on;
+    }
+
+    function submit() {
+      if (pending) return;
+
+      var email = input.value.trim().toLowerCase();
+      if (!email) {
+        showMsg(msg, ‘Please enter your email address.’, true);
+        return;
+      }
+      var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!re.test(email)) {
+        showMsg(msg, ‘Please enter a valid email address.’, true);
+        return;
+      }
+
+      setLoading(true);
+      showMsg(msg, ‘’, false);
 
       fetch(ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        method: ‘POST’,
+        headers: { ‘Content-Type’: ‘application/json’ },
         body: JSON.stringify({ email: email })
       })
       .then(function (res) { return res.json(); })
       .then(function (data) {
-        if (data.status === 'subscribed') {
-          input.value = '';
-          showMsg(msg, '✓ You’re on the waitlist! We’ll email you when Frendi launches.', false);
-        } else if (data.status === 'already_subscribed') {
-          showMsg(msg, 'You’re already on the waitlist!', false);
+        if (data.success) {
+          input.value = ‘’;
+          showMsg(msg, data.message || "You’re on the waitlist!", false);
         } else {
-          showMsg(msg, 'Something went wrong. Please try again.', true);
+          showMsg(msg, data.message || ‘Something went wrong. Please try again.’, true);
         }
       })
       .catch(function () {
-        showMsg(msg, 'Something went wrong. Please try again.', true);
+        showMsg(msg, ‘Something went wrong. Please try again.’, true);
       })
       .finally(function () {
-        arrow.disabled = false;
+        setLoading(false);
       });
     }
 
-    arrow.addEventListener('click', submit);
-    input.addEventListener('keydown', function (e) { if (e.key === 'Enter') submit(); });
+    arrow.addEventListener(‘click’, submit);
+    input.addEventListener(‘keydown’, function (e) { if (e.key === ‘Enter’) submit(); });
   }
 
-  setupWaitlist('hero-email', 'hero-arrow', 'hero-msg');
-  setupWaitlist('shop-email', 'shop-arrow', 'shop-msg');
-  setupWaitlist('cta-email',  'cta-arrow',  'cta-msg');
+  setupWaitlist(‘hero-email’, ‘hero-arrow’, ‘hero-msg’);
+  setupWaitlist(‘shop-email’, ‘shop-arrow’, ‘shop-msg’);
+  setupWaitlist(‘cta-email’,  ‘cta-arrow’,  ‘cta-msg’);
 })();
 </script>
 </body>
