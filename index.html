@@ -63,7 +63,14 @@
       object-fit: contain;
       margin-left: 56px;
     }
-    .nav-links { display: flex; gap: 28px; align-items: center; }
+    .nav-links {
+      display: flex;
+      gap: 28px;
+      align-items: center;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+    }
     .nav-links a {
       text-decoration: none;
       font-weight: 800;
@@ -72,6 +79,38 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--pink); }
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-left: auto;
+    }
+    .nav-social {
+      width: 42px;
+      height: 42px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      border: 2px solid rgba(232,28,46,0.2);
+      color: var(--pink);
+      background: #fff;
+      text-decoration: none;
+      box-shadow: 0 4px 14px rgba(26,94,173,0.08);
+      transition: transform 0.2s, box-shadow 0.2s, color 0.2s, border-color 0.2s, background 0.2s;
+    }
+    .nav-social:hover {
+      transform: translateY(-2px);
+      color: #fff;
+      background: var(--pink);
+      border-color: var(--pink);
+      box-shadow: 0 6px 18px rgba(232,28,46,0.25);
+    }
+    .nav-social svg {
+      width: 20px;
+      height: 20px;
+      fill: currentColor;
+    }
     .nav-cta {
       background: var(--pink) !important;
       color: #fff !important;
@@ -239,11 +278,11 @@
        1. HERO
     ═══════════════════════════════════════════════════════════ */
     #hero {
-      min-height: 100vh;
+      min-height: 92vh;
       background: linear-gradient(to right, #ffecf2, #fff3c4, #e8fff3);
       display: flex;
       align-items: center;
-      padding: 120px 5% 80px;
+      padding: 112px 5% 64px;
       position: relative;
       overflow: hidden;
     }
@@ -292,7 +331,8 @@
       max-width: 520px;
       font-weight: 600;
     }
-    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 30px; }
+    .hero-ctas { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 24px; }
+    #hero .waitlist-consent { color: var(--pink); }
     .hero-visual {
       flex: 0 0 420px;
       display: flex;
@@ -343,6 +383,39 @@
     .benefits-inner { max-width: 1100px; margin: 0 auto; position: relative; z-index: 2; }
     #benefits h2 { color: #fff; }
     .benefits-intro { color: rgba(255,255,255,0.9); max-width: 640px; margin-top: 12px; font-size: 1.15rem; }
+    .section-photo-frame {
+      position: relative;
+      overflow: hidden;
+      border-radius: 30px;
+      background: rgba(255,255,255,0.12);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.22), 0 6px 20px rgba(0,0,0,0.12);
+    }
+    .section-photo-frame img {
+      width: 100%;
+      height: 100%;
+      display: block;
+      object-fit: cover;
+    }
+    .benefits-showcase {
+      display: grid;
+      grid-template-columns: minmax(0, 0.88fr) minmax(0, 1.12fr);
+      gap: 34px;
+      margin-top: 44px;
+      align-items: center;
+    }
+    .benefits-photo {
+      min-height: 520px;
+      border: 3px solid rgba(245,194,0,0.95);
+      transform: rotate(-2deg);
+    }
+    .benefits-showcase .frendi-what-list {
+      margin: 0;
+      padding: 30px 32px;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.18);
+      border-radius: 28px;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.12);
+    }
     .benefits-grid { display: flex; flex-wrap: wrap; gap: 0; margin-top: 56px; }
     .benefit-item { flex: 1 1 260px; padding: 34px 28px; }
     .benefit-icon-ring {
@@ -471,24 +544,26 @@
     #nutrition .section-label { color: #fff; opacity: 0.9; }
     #nutrition h2 { color: #fff; }
     #nutrition h2 span { color: var(--yellow); }
-    .nutrition-layout { display: flex; gap: 60px; margin-top: 60px; align-items: center; flex-wrap: wrap; }
-    .nutrition-stats-col { flex: 0 0 auto; display: flex; flex-direction: column; gap: 22px; }
-    .nut-stat-big {
-      display: flex; align-items: center; gap: 20px;
-      background: rgba(255,255,255,0.22);
-      border: 2px solid rgba(255,255,255,0.4);
-      border-radius: 24px;
-      padding: 24px 28px;
-      min-width: 275px;
+    .nutrition-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 44px;
+      margin-top: 60px;
+      align-items: center;
     }
-    .nut-stat-big .num { font-family: 'DynaPuff', cursive; font-weight: 600; font-size: 3.4rem; line-height: 1; }
-    .nut-stat-big .unit { font-family: 'DynaPuff', cursive; font-weight: 600; font-size: 1.4rem; opacity: 0.7; }
-    .nut-stat-big .lbl { font-size: 0.88rem; font-weight: 700; color: rgba(255,255,255,0.85); margin-top: 3px; }
-    .nut-fiber .num { color: #fff; }
-    .nut-sugar .num { color: var(--yellow); }
-    .nutrition-text-col { flex: 1; min-width: 260px; }
+    .nutrition-text-col { min-width: 0; }
     .nutrition-text-col h3 { color: #fff; margin-bottom: 16px; font-size: 1.6rem; }
     .nutrition-text-col p  { color: rgba(255,255,255,0.92); margin-bottom: 14px; font-size: 1rem; }
+    .nutrition-photo-card {
+      width: min(100%, 470px);
+      min-height: 560px;
+      justify-self: start;
+      transform: rotate(-2deg);
+      border: 3px solid rgba(255,255,255,0.72);
+    }
+    .nutrition-photo-card img {
+      aspect-ratio: 4 / 5;
+    }
     .nutrition-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 22px; }
     .nut-pill {
       background: rgba(255,255,255,0.25);
@@ -617,7 +692,7 @@
     .faq-item {
       background: #fff;
       border-radius: 20px;
-      border: 2.5px solid transparent;
+      border: 2.5px solid rgba(232,28,46,0.55);
       box-shadow: 0 4px 18px rgba(0,0,0,0.06);
       overflow: hidden;
       transition: border-color 0.3s, box-shadow 0.3s;
@@ -648,16 +723,80 @@
     #final-cta {
       background: linear-gradient(to right, #E81C2E, #C21525);
       padding: 100px 5%;
-      text-align: center;
       position: relative;
       overflow: hidden;
     }
-    .finalcta-inner { position: relative; z-index: 2; }
-    #final-cta h2 { color: #fff; font-size: clamp(2rem, 5vw, 3.8rem); }
-    #final-cta p { color: rgba(255,255,255,0.85); font-size: 1.15rem; margin-top: 14px; font-weight: 700; }
-    .finalcta-btns { display: flex; justify-content: center; flex-wrap: wrap; gap: 16px; margin-top: 36px; }
+    .finalcta-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 1160px;
+      margin: 0 auto;
+    }
+    .finalcta-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(260px, 1fr);
+      gap: 42px;
+      align-items: center;
+    }
+    .finalcta-copy {
+      text-align: left;
+      min-width: 0;
+    }
+    .finalcta-copy h2 {
+      color: #fff;
+      font-size: clamp(2.2rem, 5vw, 4rem);
+      line-height: 1.08;
+      max-width: 12ch;
+    }
+    .finalcta-copy > p {
+      color: rgba(255,255,255,0.88);
+      font-size: 1.15rem;
+      margin-top: 14px;
+      font-weight: 700;
+      max-width: 620px;
+    }
+    .finalcta-actions {
+      margin-top: 34px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 18px;
+    }
+    .finalcta-waitlist {
+      width: 100%;
+      max-width: 660px;
+    }
+    .finalcta-meta {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 14px;
+    }
+    .finalcta-story {
+      background: rgba(255,255,255,0.14);
+      color: #fff;
+      border: 2.5px solid rgba(255,255,255,0.38);
+      backdrop-filter: blur(6px);
+    }
+    .finalcta-story:hover {
+      background: rgba(255,255,255,0.22);
+      color: #fff;
+    }
+    .finalcta-media {
+      display: flex;
+      justify-content: flex-end;
+    }
+    .finalcta-photo-card {
+      width: min(100%, 340px);
+      border: 3px solid rgba(255,255,255,0.42);
+      background: rgba(255,255,255,0.1);
+      transform: rotate(3deg);
+      box-shadow: 0 24px 60px rgba(0,0,0,0.24), 0 10px 26px rgba(0,0,0,0.14);
+    }
+    .finalcta-photo-card img {
+      aspect-ratio: 4 / 5;
+    }
     .launch-badge {
-      margin-top: 28px;
       display: inline-flex; align-items: center; gap: 10px;
       background: rgba(255,255,255,0.14);
       border: 2px solid rgba(255,255,255,0.34);
@@ -689,6 +828,19 @@
       transition: background 0.2s, color 0.2s;
     }
     .social-link:hover { background: var(--pink); color: #fff; border-color: var(--pink); }
+    .social-link svg {
+      width: 18px;
+      height: 18px;
+      fill: currentColor;
+    }
+    .social-link.instagram-link {
+      color: var(--pink);
+    }
+    .social-link.instagram-link:hover {
+      background: rgba(255,255,255,0.14);
+      color: var(--pink);
+      border-color: rgba(255,255,255,0.2);
+    }
     .footer-links-col h4 { font-family: 'DynaPuff', cursive; font-weight: 600; color: #fff; font-size: 1.1rem; margin-bottom: 16px; }
     .footer-links-col a { display: block; color: rgba(255,255,255,0.5); text-decoration: none; font-size: 0.9rem; margin-bottom: 10px; font-weight: 700; transition: color 0.2s; }
     .footer-links-col a:hover { color: var(--yellow); }
@@ -709,9 +861,46 @@
       .badge-row { justify-content: center; }
       .hero-ctas   { justify-content: center; }
       .badge-row   { justify-content: center; }
+      .benefits-showcase { grid-template-columns: 1fr; }
+      .benefits-photo { min-height: 0; max-width: 460px; margin: 0 auto; }
+      .benefits-showcase .frendi-what-list { padding: 28px 24px; }
       .shop-inner  { flex-direction: column; }
       .product-stage { flex: none; }
-      .nutrition-layout { flex-direction: column; }
+      .nutrition-layout {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .nutrition-photo-card {
+        width: min(100%, 430px);
+        min-height: 0;
+        margin: 0 auto;
+        justify-self: center;
+        transform: rotate(0deg);
+      }
+      .finalcta-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+      .finalcta-copy {
+        text-align: center;
+      }
+      .finalcta-copy h2,
+      .finalcta-copy > p {
+        max-width: none;
+      }
+      .finalcta-actions {
+        align-items: center;
+      }
+      .finalcta-meta {
+        justify-content: center;
+      }
+      .finalcta-media {
+        justify-content: center;
+      }
+      .finalcta-photo-card {
+        width: min(100%, 360px);
+        transform: rotate(0deg);
+      }
       .story-inner { flex-direction: column; }
       .story-visual { flex: none; }
       .footer-inner { flex-direction: column; }
@@ -719,11 +908,15 @@
     @media (max-width: 700px) {
       nav { padding: 10px 5%; }
       .nav-links { display: none; }
-      .nav-hamburger { display: flex; margin-left: auto; }
+      .nav-actions { gap: 12px; }
+      .nav-hamburger { display: flex; }
       .nav-logo img { margin-left: 4px; }
       .hero-visual { max-width: 90vw; }
       .bottle-blob { width: 240px; height: 240px; }
-      .nut-stat-big { min-width: auto; width: 100%; }
+      .product-stage { padding-bottom: 0; flex-direction: column; gap: 18px; }
+      .finalcta-copy h2 { max-width: 11ch; margin: 0 auto; }
+      #final-cta .waitlist-consent { text-align: center; margin-left: 0; }
+      #final-cta .waitlist-msg { margin-left: 0; }
     }
     @media (max-width: 480px) { .btn { padding: 13px 26px; font-size: 1rem; } }
 
@@ -786,6 +979,7 @@
     #final-cta .waitlist-strip { background: #fff; box-shadow: 0 8px 32px rgba(0,0,0,0.15); }
     #final-cta .waitlist-strip-label { color: #E81C2E; }
     #final-cta .waitlist-msg { color: rgba(255,255,255,0.95); }
+    #final-cta .waitlist-consent { color: rgba(255,255,255,0.82); font-size: 0.8rem; }
     @media (max-width: 560px) {
       .waitlist-strip { flex-direction: column; align-items: stretch; padding: 16px; gap: 10px; border-radius: 16px; }
       .waitlist-strip-label { margin-right: 0; font-size: 1rem; }
@@ -809,9 +1003,14 @@
     <a href="#faq">FAQ</a>
     <a href="#shop" class="nav-cta">Shop Frendi</a>
   </div>
-  <button class="nav-hamburger" id="hamburger" aria-label="Menu">
-    <span></span><span></span><span></span>
-  </button>
+  <div class="nav-actions">
+    <a href="https://www.instagram.com/drinkfrendi?utm_source=qr" class="nav-social" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+      <svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3ZM12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85Zm0 1.8A3.35 3.35 0 1 0 15.35 12 3.35 3.35 0 0 0 12 8.65Z"/></svg>
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
 </nav>
 
 <div class="mobile-nav" id="mobile-nav">
@@ -846,7 +1045,7 @@
       </div>
       <p style="font-size:1rem;font-weight:700;letter-spacing:0.08em;color:var(--orange);text-transform:uppercase;margin-bottom:6px;">Daily Fiber Drink</p>
       <h1>Frendi —<br/><span>Your Fiber</span><br/>Friend!</h1>
-      <p class="hero-sub">The first ever kids fiber drink made to make daily fiber easier for families. Designed for ages 2+, built for picky eaters, and loved by busy parents.</p>
+      <p class="hero-sub">The first ever kids fiber drink made to make daily fiber easier for families. Built for picky eaters, and loved by busy parents.</p>
       <div class="hero-ctas" style="flex-direction:column;align-items:flex-start;gap:12px;">
         <div class="waitlist-wrap">
           <div class="waitlist-strip">
@@ -862,12 +1061,6 @@
           <p class="waitlist-msg" id="hero-msg" aria-live="polite"></p>
           <p class="waitlist-consent">By joining the waitlist, you agree to receive launch updates and marketing emails from Frendi. You can unsubscribe at any time.</p>
         </div>
-        <a href="#benefits" class="btn btn-secondary">Learn More</a>
-      </div>
-      <div class="badge-row">
-        <div class="badge"><span class="badge-dot" style="background:var(--purple);"></span> Ages 2+</div>
-        <div class="badge"><span class="badge-dot" style="background:var(--green);"></span> 7g Fiber</div>
-        <div class="badge"><span class="badge-dot" style="background:var(--pink);"></span> Low Sugar</div>
       </div>
     </div>
 
@@ -901,28 +1094,33 @@
       <p class="benefits-intro">Frendi is a <strong style="color:var(--yellow);">daily fiber drink</strong> made specifically for kids — the first ready-to-drink option of its kind, created by a mom &amp; nurse who gets it.</p>
     </div>
 
-    <ul class="frendi-what-list reveal">
-      <li>
-        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#f5c200"/></svg>
-        Ready to drink — no mixing or measuring.
-      </li>
-      <li>
-        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#44B848"/></svg>
-        Not a laxative — gentle daily fiber support.
-      </li>
-      <li>
-        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#1A5EAD"/></svg>
-        Easy for lunchboxes, travel, and busy family schedules.
-      </li>
-      <li>
-        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#1A5EAD"/></svg>
-        Great served chilled at home or on the go.
-      </li>
-      <li>
-        <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#E81C2E"/></svg>
-        Each serving of Frendi contains approximately the same fiber as 2 cups of blueberries.
-      </li>
-    </ul>
+    <div class="benefits-showcase">
+      <div class="section-photo-frame benefits-photo reveal">
+        <img src="frendi-kids-outside.jpg" alt="Kids playing in the grass with Frendi bottles" />
+      </div>
+      <ul class="frendi-what-list reveal" style="transition-delay:0.1s;">
+        <li>
+          <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#f5c200"/></svg>
+          Ready to drink — no mixing or measuring.
+        </li>
+        <li>
+          <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#44B848"/></svg>
+          Not a laxative — gentle daily fiber support.
+        </li>
+        <li>
+          <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#1A5EAD"/></svg>
+          Easy for lunchboxes, travel, and busy family schedules.
+        </li>
+        <li>
+          <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#1A5EAD"/></svg>
+          Great served chilled at home or on the go.
+        </li>
+        <li>
+          <svg class="what-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" fill="#E81C2E"/></svg>
+          Each serving of Frendi contains approximately the same fiber as 2 cups of blueberries.
+        </li>
+      </ul>
+    </div>
   </div>
 </section>
 
@@ -988,7 +1186,6 @@
         <div class="product-flavor-name">Sunny Slope</div>
         <div class="product-stats">
           <span class="product-stat">7g Fiber</span>
-          <span class="product-stat">Ages 2+</span>
         </div>
         <!-- SHOPIFY EMBED AREA — paste Buy Button code inside #shopify-buy-button-placeholder -->
         <div class="shopify-embed-area">
@@ -1010,8 +1207,6 @@
       <p style="margin-top:12px;">No powder. No mess. No convincing. Just a delicious daily fiber drink that parents can feel great about.</p>
       <div class="badge-row" style="margin-top:24px;">
         <div class="badge"><span class="badge-dot" style="background:var(--green);"></span> 7g Fiber per serving</div>
-        <div class="badge"><span class="badge-dot" style="background:var(--pink);"></span> Low Sugar</div>
-        <div class="badge"><span class="badge-dot" style="background:var(--purple);"></span> Ages 2 and up</div>
       </div>
       <div style="margin-top:30px;" class="waitlist-wrap">
         <div class="waitlist-strip">
@@ -1080,21 +1275,9 @@
     </div>
 
     <div class="nutrition-layout">
-      <div class="nutrition-stats-col reveal" style="transition-delay:0.1s;">
-        <div class="nut-stat-big nut-fiber">
-          <div>
-            <div class="num">7<span class="unit">g</span></div>
-            <div class="lbl">of Fiber per serving</div>
-          </div>
-        </div>
-        <div class="nut-stat-big" style="border-color:rgba(255,255,255,0.4);">
-          <div>
-            <div class="num" style="color:#fff;font-size:2.6rem;">2+</div>
-            <div class="lbl">Years old and up</div>
-          </div>
-        </div>
+      <div class="section-photo-frame nutrition-photo-card reveal" style="transition-delay:0.1s;">
+        <img src="frendi-fruits-greens.png" alt="Frendi Sunny Slope bottle surrounded by berries, spinach, and broccoli" />
       </div>
-
       <div class="nutrition-text-col reveal" style="transition-delay:0.2s;">
         <h3>Simple ingredients, big impact</h3>
         <p>Frendi was formulated to support healthy fiber intake in kids using simple, clean ingredients — because parents deserve to know exactly what's going into their children's bodies.</p>
@@ -1104,8 +1287,7 @@
           <p style="margin:0;color:#fff;font-size:1rem;line-height:1.5;"><strong style="color:var(--yellow);">Fun fact:</strong> Each serving of Frendi contains approximately the same fiber as <strong>2 cups of blueberries!</strong></p>
         </div>
         <div class="nutrition-pills">
-          <span class="nut-pill">Includes Fiber</span>
-          <span class="nut-pill">Low Sugar</span>
+          <span class="nut-pill">7g of Fiber</span>
           <span class="nut-pill">Kid-Friendly</span>
           <span class="nut-pill">No Messy Powders</span>
           <span class="nut-pill">Convenient Format</span>
@@ -1182,10 +1364,6 @@
 
     <div class="faq-list reveal" style="transition-delay:0.1s;">
       <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">What age is Frendi for?<span class="faq-arrow">+</span></button>
-        <div class="faq-a">Frendi is made for ages 2 and up. It was designed to be an age-appropriate daily fiber drink starting from toddlerhood.</div>
-      </div>
-      <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">What type of drink is Frendi?<span class="faq-arrow">+</span></button>
         <div class="faq-a">Frendi is a daily fiber drink for kids. It's a ready-to-drink beverage designed to make getting daily fiber easy and enjoyable for children and convenient for parents.</div>
       </div>
@@ -1200,10 +1378,6 @@
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">Where will Frendi be sold?<span class="faq-arrow">+</span></button>
         <div class="faq-a">Frendi will be available online first. You'll be able to shop directly from our website at launch.</div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">Is Frendi low sugar?<span class="faq-arrow">+</span></button>
-        <div class="faq-a">Yes! Frendi is a low-sugar option parents can feel comfortable incorporating into their child's daily routine.</div>
       </div>
       <div class="faq-item">
         <button class="faq-q" onclick="toggleFaq(this)">How much fiber does Frendi have?<span class="faq-arrow">+</span></button>
@@ -1238,27 +1412,36 @@
   <div class="deco-star" style="width:24px;height:24px;background:var(--yellow);bottom:20%;right:10%;opacity:0.5;animation-delay:2s;"></div>
 
   <div class="finalcta-inner reveal">
-    <h2>Ready to meet your child's fiber friend?</h2>
-    <p>Frendi is launching 2026 — the first ever daily fiber drink made for kids. Don't miss it.</p>
-    <div class="finalcta-btns" style="flex-direction:column;align-items:center;gap:14px;">
-      <div class="waitlist-wrap" style="max-width:580px;width:100%;">
-        <div class="waitlist-strip">
-          <span class="waitlist-strip-label">Join the Waitlist!</span>
-          <div class="waitlist-strip-divider"></div>
-          <div class="waitlist-strip-pill">
-            <input type="email" class="waitlist-strip-input" id="cta-email" placeholder="Enter your email" autocomplete="email" />
-            <button type="button" class="waitlist-strip-btn" id="cta-arrow" aria-label="Join waitlist">
-              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-            </button>
+    <div class="finalcta-layout">
+      <div class="finalcta-copy">
+        <h2>Ready to meet your child's fiber friend?</h2>
+        <p>Frendi is launching 2026 — the first ever daily fiber drink made for kids. Don't miss it.</p>
+        <div class="finalcta-actions">
+          <div class="waitlist-wrap finalcta-waitlist">
+            <div class="waitlist-strip">
+              <span class="waitlist-strip-label">Join the Waitlist!</span>
+              <div class="waitlist-strip-divider"></div>
+              <div class="waitlist-strip-pill">
+                <input type="email" class="waitlist-strip-input" id="cta-email" placeholder="Enter your email" autocomplete="email" />
+                <button type="button" class="waitlist-strip-btn" id="cta-arrow" aria-label="Join waitlist">
+                  <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5 12h14M13 6l6 6-6 6" stroke="#333" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                </button>
+              </div>
+            </div>
+            <p class="waitlist-msg" id="cta-msg" aria-live="polite"></p>
+            <p class="waitlist-consent">By joining the waitlist, you agree to receive launch updates and marketing emails from Frendi. You can unsubscribe at any time.</p>
+          </div>
+          <div class="finalcta-meta">
+            <a href="#story" class="btn finalcta-story">Our Story</a>
+            <span class="launch-badge"><span class="launch-dot"></span> Launching 2026 — Online First</span>
           </div>
         </div>
-        <p class="waitlist-msg" id="cta-msg" aria-live="polite"></p>
-        <p class="waitlist-consent">By joining the waitlist, you agree to receive launch updates and marketing emails from Frendi. You can unsubscribe at any time.</p>
       </div>
-      <a href="#story" class="btn" style="background:rgba(255,255,255,0.14);color:#fff;border:2.5px solid rgba(255,255,255,0.38);backdrop-filter:blur(6px);">Our Story</a>
-    </div>
-    <div>
-      <span class="launch-badge"><span class="launch-dot"></span> Launching 2026 — Online First</span>
+      <div class="finalcta-media">
+        <div class="section-photo-frame finalcta-photo-card">
+          <img src="final-cta-crayons.png" alt="Frendi Sunny Slope bottle surrounded by colorful crayons" />
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -1272,7 +1455,9 @@
       <p>The first ever daily fiber drink made for kids. Launching 2026 — online first.</p>
       <!-- SOCIAL LINKS: Replace # with real profile URLs when ready -->
       <div class="social-links">
-        <a href="#" class="social-link" aria-label="Instagram">IG</a>
+        <a href="https://www.instagram.com/drinkfrendi?utm_source=qr" class="social-link instagram-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg viewBox="0 0 24 24" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><path d="M7.75 2h8.5A5.75 5.75 0 0 1 22 7.75v8.5A5.75 5.75 0 0 1 16.25 22h-8.5A5.75 5.75 0 0 1 2 16.25v-8.5A5.75 5.75 0 0 1 7.75 2Zm0 1.8A3.95 3.95 0 0 0 3.8 7.75v8.5a3.95 3.95 0 0 0 3.95 3.95h8.5a3.95 3.95 0 0 0 3.95-3.95v-8.5a3.95 3.95 0 0 0-3.95-3.95h-8.5Zm8.95 1.35a1.15 1.15 0 1 1 0 2.3 1.15 1.15 0 0 1 0-2.3ZM12 6.85A5.15 5.15 0 1 1 6.85 12 5.16 5.16 0 0 1 12 6.85Zm0 1.8A3.35 3.35 0 1 0 15.35 12 3.35 3.35 0 0 0 12 8.65Z"/></svg>
+        </a>
         <a href="#" class="social-link" aria-label="TikTok">TT</a>
         <a href="#" class="social-link" aria-label="Facebook">FB</a>
       </div>

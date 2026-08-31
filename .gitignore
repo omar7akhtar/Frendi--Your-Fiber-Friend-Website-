@@ -1,0 +1,9 @@
+.env
+.DS_Store
+node_modules/
+*.zip
+index 2.html
+index 3.html
+.claude/
+Frendi Website/
+Frendi Website 2/
